@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Day 4 Tasks</title>
+
+    <!-- CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            min-height: 100vh;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        h1 {
+            color: white;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #f3e8ff;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            background: white;
+            width: 380px;
+            max-width: 100%;
+            margin: 25px auto;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: 0.3s;
+            border-top: 6px solid #8b5cf6;
+        }
+
+        .container:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        h2 {
+            color: #5b21b6;
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            margin: 14px auto;
+            border: 2px solid #e0d7ff;
+            border-radius: 9px;
+            background: #faf8ff;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #8b5cf6;
+            background: white;
+            box-shadow: 0 0 10px rgba(139,92,246,0.2);
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 20px;
+            margin: 7px 4px;
+            border: none;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.06);
+            box-shadow: 0 7px 18px rgba(102,126,234,0.4);
+        }
+
+        button:active {
+            transform: scale(0.96);
+        }
+
+        .container p {
+            color: #581c87;
+            background: #f3e8ff;
+            margin-top: 20px;
+            padding: 13px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
+        }
+
+        .container:nth-of-type(3) {
+            border-top-color: #06b6d4;
+        }
+
+        .container:nth-of-type(4) {
+            border-top-color: #f59e0b;
+        }
+
+        .container:nth-of-type(5) {
+            border-top-color: #ec4899;
+        }
+
+        .container:nth-of-type(6) {
+            border-top-color: #10b981;
+        }
+
+        .container:nth-of-type(7) {
+            border-top-color: #6366f1;
+        }
+
+        @media (max-width: 450px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .container {
+                width: 100%;
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Practice Tasks</h1>
+    <p class="subtitle">Day 4 - Async/Await & Exception Handling</p>
+
+    <!-- TASK 1 -->
+    <div class="container">
+        <h2>Task 1 - Student Details</h2>
+
+        <button onclick="displayStudent()">
+            Get Student Details
+        </button>
+
+        <p id="studentResult">Student details will appear here</p>
+    </div>
+
+    <!-- TASK 2 -->
+    <div class="container">
+        <h2>Task 2 - Product Availability</h2>
+
+        <button onclick="checkProduct(true)">Available</button>
+        <button onclick="checkProduct(false)">Out of Stock</button>
+
+        <p id="productResult">Check product availability</p>
+    </div>
+
+    <!-- TASK 3 -->
+    <div class="container">
+        <h2>Task 3 - Login Validation</h2>
+
+        <input type="email" id="email" placeholder="Enter Email">
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <button onclick="validateLogin()">Login</button>
+
+        <p id="loginResult">Enter your credentials</p>
+    </div>
+
+    <!-- TASK 4 -->
+    <div class="container">
+        <h2>Task 4 - ATM Withdrawal</h2>
+
+        <input type="number" id="balance" placeholder="Enter Balance">
+        <input type="number" id="amount" placeholder="Enter Withdrawal Amount">
+
+        <button onclick="withdraw()">Withdraw Money</button>
+
+        <p id="atmResult">Enter withdrawal details</p>
+    </div>
+
+    <!-- TASK 5 -->
+    <div class="container">
+        <h2>Task 5 - Employee Validation</h2>
+
+        <input type="text" id="name" placeholder="Employee Name">
+        <input type="email" id="empEmail" placeholder="Employee Email">
+        <input type="number" id="salary" placeholder="Employee Salary">
+
+        <button onclick="checkEmployee()">Validate Employee</button>
+
+        <p id="employeeResult">Enter employee details</p>
+    </div>
+
+    <!-- TASK 6 -->
+    <div class="container">
+        <h2>Task 6 - Number Division</h2>
+
+        <input type="number" id="num1" placeholder="Enter First Number">
+        <input type="number" id="num2" placeholder="Enter Second Number">
+
+        <button onclick="calculate()">Divide</button>
+
+        <p id="divisionResult">Enter two numbers</p>
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // =================================
+        // TASK 1 - STUDENT DETAILS
+        // =================================
+
+        function getStudentDetails() {
+            return new Promise((resolve) => {
+
+                setTimeout(() => {
+
+                    const student = {
+                        id: 101,
+                        name: "Gokul",
+                        department: "CSE Cybersecurity"
+                    };
+
+                    resolve(student);
+
+                }, 2000);
+
+            });
+        }
+
+        async function displayStudent() {
+
+            const result = document.getElementById("studentResult");
+
+            result.innerHTML = "Loading...";
+
+            const student = await getStudentDetails();
+
+            result.innerHTML =
+                "ID: " + student.id +
+                "<br>Name: " + student.name +
+                "<br>Department: " + student.department;
+        }
+
+
+        // =================================
+        // TASK 2 - PRODUCT AVAILABILITY
+        // =================================
+
+        function checkAvailability(isAvailable) {
+
+            return new Promise((resolve, reject) => {
+
+                if (isAvailable) {
+                    resolve("Product Available");
+                } else {
+                    reject("Product Out of Stock");
+                }
+
+            });
+        }
+
+        async function checkProduct(status) {
+
+            const result = document.getElementById("productResult");
+
+            try {
+
+                const message = await checkAvailability(status);
+
+                result.innerHTML = message;
+
+            } catch (error) {
+
+                result.innerHTML = error;
+
+            }
+        }
+
+
+        // =================================
+        // TASK 3 - LOGIN VALIDATION
+        // =================================
+
+        function login(email, password) {
+
+            return new Promise((resolve, reject) => {
+
+                if (
+                    email === "gokul@gmail.com" &&
+                    password === "12345"
+                ) {
+                    resolve("Login Successful!");
+                } else {
+                    reject("Invalid Email or Password");
+                }
+
+            });
+        }
+
+        async function validateLogin() {
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            const result = document.getElementById("loginResult");
+
+            try {
+
+                const message = await login(email, password);
+
+                result.innerHTML = message;
+
+            } catch (error) {
+
+                result.innerHTML = error;
+
+            }
+        }
+
+
+        // =================================
+        // TASK 4 - ATM WITHDRAWAL
+        // =================================
+
+        function withdrawMoney(balance, amount) {
+
+            if (amount <= 0) {
+                throw new Error("Invalid Withdrawal Amount");
+            }
+
+            if (amount > balance) {
+                throw new Error("Insufficient Balance");
+            }
+
+            return balance - amount;
+        }
+
+        function withdraw() {
+
+            const balanceInput = document.getElementById("balance").value;
+            const amountInput = document.getElementById("amount").value;
+
+            const result = document.getElementById("atmResult");
+
+            try {
+
+                if (balanceInput === "" || amountInput === "") {
+                    throw new Error("Please enter both values");
+                }
+
+                const balance = Number(balanceInput);
+                const amount = Number(amountInput);
+
+                const remaining = withdrawMoney(balance, amount);
+
+                result.innerHTML =
+                    "Withdrawal Successful!" +
+                    "<br>Remaining Balance: " + remaining;
+
+            } catch (error) {
+
+                result.innerHTML = "Error: " + error.message;
+
+            } finally {
+
+                result.innerHTML += "<br>Transaction Completed";
+
+            }
+        }
+
+
+        // =================================
+        // TASK 5 - EMPLOYEE VALIDATION
+        // =================================
+
+        function validateEmployee(employee) {
+
+            if (!employee.name || employee.name.trim() === "") {
+                throw new Error("Employee Name is Required");
+            }
+
+            if (!employee.email || !employee.email.includes("@")) {
+                throw new Error("Invalid Employee Email");
+            }
+
+            if (
+                !Number.isFinite(employee.salary) ||
+                employee.salary <= 0
+            ) {
+                throw new Error("Invalid Employee Salary");
+            }
+
+            return "Employee Data is Valid";
+        }
+
+        function checkEmployee() {
+
+            const employee = {
+
+                name: document.getElementById("name").value,
+
+                email: document.getElementById("empEmail").value,
+
+                salary: Number(document.getElementById("salary").value)
+
+            };
+
+            const result = document.getElementById("employeeResult");
+
+            try {
+
+                const message = validateEmployee(employee);
+
+                result.innerHTML = message;
+
+            } catch (error) {
+
+                result.innerHTML = "Error: " + error.message;
+
+            } finally {
+
+                result.innerHTML += "<br>Employee Validation Completed";
+
+            }
+        }
+
+
+        // =================================
+        // TASK 6 - NUMBER DIVISION
+        // =================================
+
+        function divideNumbers(a, b) {
+
+            if (b === 0) {
+                throw new Error("Cannot Divide by Zero");
+            }
+
+            return a / b;
+        }
+
+        function calculate() {
+
+            const num1Input = document.getElementById("num1").value;
+            const num2Input = document.getElementById("num2").value;
+
+            const result = document.getElementById("divisionResult");
+
+            try {
+
+                if (num1Input === "" || num2Input === "") {
+                    throw new Error("Please enter both numbers");
+                }
+
+                const a = Number(num1Input);
+                const b = Number(num2Input);
+
+                const answer = divideNumbers(a, b);
+
+                result.innerHTML = "Division Result: " + answer;
+
+            } catch (error) {
+
+                result.innerHTML = "Error: " + error.message;
+
+            } finally {
+
+                result.innerHTML += "<br>Calculation Completed";
+
+            }
+        }
+
+    </script>
+
+</body>
+</html>
